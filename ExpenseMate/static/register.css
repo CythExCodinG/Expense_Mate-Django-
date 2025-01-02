@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", serif;
+    }
+
+    .wrapper {
+      min-height: 100vh;
+      min-width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      background: url("/media/assets/registration.jpg") no-repeat center center/cover;
+    }
+
+    .formcontainer {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 5px;
+      border: 2px solid rgba(0, 0, 0, 0.397);
+      backdrop-filter: blur(10px);
+      transition: all 2s ease-in;
+    }
+
+    .formcontainer input {
+      font-size: 16px;
+      width: 400px;
+      height: 40px;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 20px 60px;
+      font-weight: 500;
+       border: 2px solid rgb(32, 111, 230);
+      
+    }
+
+    .formcontainer .input {
+      font-size: 16px;
+      width: 400px;
+      height: 40px;
+      background-color: aqua;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 20px 60px;
+      font-weight: 600;
+      outline: none;
+      border: none;
+    }
+
+    .formcontainer .btn-box {
+      width: 400px;
+      height: 40px;
+      border-radius: 5px;
+      font-weight: 800;
+      font-size: 16px;
+      margin: 20px 60px;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      width: 100px;
+      padding: 10px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.5s ease;
+    }
+
+    .sav:hover {
+      background-color: rgb(36, 214, 104);
+      color: black;
+    }
+
+    .reset:hover {
+      background-color: red;
+      color: black;
+    }
+
+    h1 {
+      font-family: "Poppins", sans-serif;
+      margin-top: 100px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 5px;
+      font-size: 50px;
+      color: seagreen;
+      cursor: wait;
+    }
+
+    span {
+      color: rgb(226, 27, 70);
+      font-weight: 700;
+    }
+
+    .link {
+      margin-bottom: 20px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .warning {
+      color: red;
+    }
+
+    .info {
+      color: seagreen;
+    }
+
+    .link a {
+      color: blue;
+      text-decoration: none;
+    }
