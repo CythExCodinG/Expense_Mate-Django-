@@ -1,32 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@font-face {
+  font-family: 'Ndot-55';
+  src: url("/media/assets/Ndot.otf");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Ubuntu", serif;
+  font-family: 'Chillax', sans-serif;
+  font-weight: 400;
 }
 
+html{
+  scroll-behavior: smooth;
+}
 body{
   min-height: 100vh;
   display: flex;
-  background: url("/media/assets/bg2.png") no-repeat center center/cover;
   justify-content: center;
   align-items: center;
+  background: url("/media/assets/mainbg_final.jpg") no-repeat center center/cover;
 }
-
 .wrapper{
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.5);
   width: 98vw;
   min-height: 98vh;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
-  background-color: #f3f0f056;
+  background:transparent;
   margin: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   overflow: hidden;
-  box-shadow: 0 0 10px rgb(1, 1, 1,0.5);
+  box-shadow: 0 0 10px rgba(1, 1, 1, 0.603);
 }
 
 header{
@@ -34,22 +43,100 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  background-color: transparent;
 }
 
 .title{
   padding: 10px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .title h1{
-  color: rgb(0, 0, 0);
-  font-size: 40px;
+  color: seagreen;
+  font-size: 50px;
+  font-weight: 800;
+  font-family: "Poppins", serif;
+  font-weight: 800;
 }
+.title img{
+  width: 120px;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 5px orange);
+}
+.title h1:hover{
+  animation: titleglow 2s infinite ease-in-out;
+}
+.title img:hover{
+  animation: glow 2s infinite ease-in;
+}
+
+  @keyframes glow {
+    0%{
+      filter:drop-shadow(0px 0px 5px orange);
+    }
+    15%{
+      filter:drop-shadow(0px 0px 20px orange);
+    }
+    30%{
+      filter:drop-shadow(0px 0px 50px orange);
+    }
+    45%{
+      filter:drop-shadow(0px 0px 40px orange);
+    }
+    60%{
+      filter:drop-shadow(0px 0px 20px orange);
+    }
+    75%{
+      filter:drop-shadow(0px 0px 10px orange);
+    }
+    95%{
+      filter:drop-shadow(0px 0px 5px orange);
+    }
+  }
+  @keyframes titleglow {
+    0%{
+      filter:drop-shadow(0px 0px 5px seagreen);
+    }
+    15%{
+      filter:drop-shadow(0px 0px 30px  seagreen);
+    }
+    30%{
+      filter:drop-shadow(0px 0px 50px seagreen);
+    }
+    45%{
+      filter:drop-shadow(0px 0px 100px  seagreen);
+    }
+    60%{
+      filter:drop-shadow(0px 0px 70px seagreen);
+    }
+    75%{
+      filter:drop-shadow(0px 0px 40px seagreen);
+    }
+    95%{
+      filter:drop-shadow(0px 0px 0px seagreen);
+    }
+    100%{
+      filter:drop-shadow(0px 0px 100px  seagreen);
+    }
+  }
 
 .navbar{
   display: flex;
   text-align: center;
   align-items: center;
-  padding: 10px;
+  background-color: transparent;
+  box-shadow: 1px 1px 4px 3px rgb(109, 219, 219);
+  padding: 5px;
+  border-radius: 20px 20px 20px 20px;
+}
+.user h4{
+  color: rgb(20, 61, 59);
+  padding: 8px;
+  font-weight: bolder;
+  font-size: 18px;
 }
 
 .navbar nav ul{
@@ -59,17 +146,31 @@ header{
 .navbar ul li{
   cursor: pointer;
   list-style: none;
-  padding: 8px;
-  margin: 10px;
+  font-weight: bolder;
+  padding: 10px;
+  margin: 0px 10px;
+  border-radius: 20px 20px 20px 20px;
   transition: all 0.2s ease-in;
+  letter-spacing: 2px;
 }
 
-.navbar ul li:hover{
-  background-color: rgb(59, 150, 86);
-  border-radius: 50px;
+.active{
+  background-color: seagreen;
+  font-weight: bolder;
+  color: black;
 }
+
+/* .navbar ul li:hover{
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px 20px 20px 20px;
+  color: #0a0000;
+} */
 .navbar a{
   text-decoration: none;
+  font-weight: bolder;
+}
+.expense h1{
+  font-weight: bolder;
 }
 .cardsbox{
   display: flex;
@@ -78,19 +179,28 @@ header{
   gap: 20px;
   justify-content: space-around;
   padding: 10px;
-  color: #0e1686;
+  color: white;
+  letter-spacing: 1px;
 }
+
 .cardsbox .budget-outer{
   display: flex;
   width: 400px;
-  box-shadow: 1px 1px 5px 4px rgba(0, 0, 0, 0.603);
-  background-color: rgba(230, 217, 35, 0.582);
+  box-shadow: 0px 0px 10px seagreen;
+  background-color: rgb(7, 7, 6);
   justify-content: space-around;
   border-radius: 10px;
   margin: 10px;
+  padding: 10px;
   transition: all 0.3s ease-in-out;
 }
-
+.cardsbox  .budget-outer:hover .budget{
+  filter: drop-shadow(0px 0px 50px white);
+}
+.budget h1{
+  font-family: "Poppins", serif;
+  font-weight: bolder;
+}
 .image img{
   width: 100%;
   height: 100%;
@@ -104,55 +214,105 @@ header{
   height: 200px;
 }
 
-.image img:hover{
+/* .cardsbox .budget-outer:hover .image img{
   transform: scale(1.2);
-  filter: grayscale(0%);
-}
+  filter: drop-shadow(10px 0px 5px white);
 
+}
+.cardsbox .expense-outer:hover .image img{
+  transform: scale(1.2);
+  filter: drop-shadow(10px 0px 5px white);
+
+}
+.cardsbox .repeat-outer:hover .image img{
+  transform: scale(1.2);
+  filter: drop-shadow(10px 0px 5px white);
+
+} */
 .cardsbox .budget-outer .budget{
   border-radius: 20px;
   height: 150px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 8px;
   margin: 10px;
+  cursor: default;
+  transition: all 0.2s ease-in;
 }
+
 .cardsbox .expense-outer{
   border-radius: 10px;
+  box-shadow: 0px 0px 10px seagreen;
+  background-color: rgb(7, 7, 6);
   margin: 10px;
-  box-shadow: 1px 1px 5px 4px rgba(0, 0, 0, 0.603);
   display: flex;
+  padding: 10px;
   width: 400px;
   justify-content: space-around;
-  background-color: rgba(111, 116, 116, 0.623);
+  transition: all 0.2s ease-in;
+
+}
+.expense h1{
+  font-family: "Poppins", serif;
+  font-weight: bolder;
+}
+.cardsbox  .expense-outer:hover .expense{
+  filter: drop-shadow(0px 0px 50px white);
 }
 
 .cardsbox .expense-outer .expense{
   border-radius: 20px;
   margin: 10px;
-  height: 150px;
+  transition: all 0.2s ease-in;
   display: flex;
+  cursor: default;
   flex-direction: column;
   width: 400px;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  justify-content: center;
   padding: 8px;
 }
 
 .cardsbox .repeat-outer{
   border-radius: 10px;
   display: flex;
-  box-shadow: 1px 1px 5px 4px rgba(0, 0, 0, 0.747);
   margin: 10px;
   width: 400px;
-  justify-content: space-around;
-  background-color:rgba(27, 218, 218, 0.61);
+  padding: 10px;
+  box-shadow: 0px 0px 10px seagreen;
+  background-color: rgb(7, 7, 6);
+  justify-content: center;
+  transition: all 0.2s ease-in;
+}
+.repeatexpense h1{
+  font-weight: bolder;
+  font-family: "Poppins", serif;
 }
 
+.repeat-outer:not(:hover){
+  filter: blur(2px);
+  transform: scale(0.9,0.9);
+}
+
+.budget-outer:not(:hover){
+  filter: blur(2px);
+  transform: scale(0.9,0.9);
+}
+
+.expense-outer:not(:hover){
+  filter: blur(2px);
+  transform: scale(0.9,0.9);
+}
+
+.repeat-outer:hover .repeatexpense{
+  filter: drop-shadow(0px 0px 50px white);
+}
 .cardsbox .repeat-outer .repeatexpense{
   border-radius: 20px;
+  cursor: default;
+  transition: all 0.5s ease-in;
   margin: 10px;
   height: 150px;
   display: flex;
@@ -163,37 +323,49 @@ header{
   padding: 8px;
 }
 
+.cardsbox:not(:hover){
+  filter: blur(2px);
+}
+
 .btn{
-  font-weight: 500;
-  font-size: 16px;
-  box-shadow: 1px 1px 5px 2px black;
+  font-weight: bolder;
+  font-size: 18px;
+  box-shadow: 2px 2px 2px 0px rgb(236, 236, 236);
+  margin-top: 20px;
   width: 80px;
   height: 35px;
+  color: white;
   padding: 5px;
   border-radius: 5px;
   border: none;
   outline: none;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: seagreen;
+  letter-spacing: 2px;
 }
 
 button:hover{
-  background-color: rgb(120, 223, 117);
-  scale: 1.1;
-  color: brown;
-  font-size: 17px;
+  transform: translateX(1px) translateY(2px);
+  box-shadow: none;
+  animation: titleglow 2s infinite ease-in;
 }
 
 .budget span{
   font-size: 20px;
+  font-weight: 300;
 }
 .expense span{
   font-size: 20px;
+  font-weight: 300;
+
 }
 .repeatexpense span{
   font-size: 20px;
+  font-weight: 300;
 }
 
 .category-box{
+  margin: 20px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -201,7 +373,10 @@ button:hover{
   justify-content: space-around;
   margin-top: 60px 5px;
   backdrop-filter: blur(5px);
-
+  box-shadow: 0px 0px 50px 1px grey;
+  border:none;
+  outline: none;
+  padding: 10px;
 }
 
 .food-box{
@@ -243,56 +418,67 @@ button:hover{
   transform: scale(1.2);
   box-shadow: 1px 1px 10px 1px rgb(140, 228, 25);
 }
-.stationary-box:hover{
+/* .stationary-box:hover{
   transform: scale(1.2);
   box-shadow: 1px 1px 10px 1px black;
-}
+} */
 .outerwarn{
-  backdrop-filter: blur(5px);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px 1px grey;
+  margin: 20px;
+  height: 100%;
+  position: relative;
 }
 
 .warncard{
+  position: relative;
   display: flex;
+  z-index: 0;
   flex-direction: column;
   box-shadow: 1px 1px 10px black;
   padding: 20px;
-  background: linear-gradient(120deg, #f3f4f6, #e8eaed);
   margin: 20px;
   border-radius: 10px;
-  color: #3d84be;
+  color: black;
 }
+
 .warncard h1{
-  margin: 10px;
+  margin: 40px 0px;
   text-align: center;
 }
 .warncard .compare{
-  margin: 10px;
+  margin: 40px 10px;
   display: flex;
   justify-content: space-between;
 }
+
 .compare .totalexpense{
   box-shadow: 1px 1px 5px 0.5px black;
   padding: 30px;
-  margin: 5px;
+  margin:40px 10px;
   border-radius: 10px;
 }
 .compare .budget{
   box-shadow: 1px 1px 5px 0.5px black;
   padding: 30px;
-  margin: 5px;
+  margin:40px 10px;
   border-radius: 10px;
 }
-
 .warncard .result{
-  margin-top: 10px;
+  margin:40px 10px;
   padding: 10px;
   box-shadow: 1px 6px 5px 0.5px red;
 }
 .category-box h1{
   text-align: center;
   margin-top: 60px;
+}
+
+.bottom{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 }

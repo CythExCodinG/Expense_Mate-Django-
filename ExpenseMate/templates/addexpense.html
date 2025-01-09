@@ -22,15 +22,15 @@
         {% csrf_token %}
         <h1 style="text-align: center; color: seagreen; font-size: 40px;">Add Expense</h1>
 
-        <input type="number" name="amount" placeholder="Enter Amount" required>
+        <input type="number" name="amount" placeholder="Enter Amount" required value="{{amount}}">
         <select name="category" id="category">
-          <option value="food">Food</option>
-          <option value="stationary">Stationary</option>
-          <option value="bills">Utility/bills</option>
-          <option value="health">Fitness/Health</option>
-          <option value="other" selected>Other</option>
+          <option value="food" {% ifequal category "food" %}selected{% endifequal %}>Food</option>
+          <option value="stationary" {% ifequal category "stationary" %}selected{% endifequal %}>Stationary</option>
+          <option value="bills" {% ifequal category "bills" %}selected{% endifequal %}>Utility/bills</option>
+          <option value="health" {% ifequal category "health" %}selected{% endifequal %}>Fitness/Health</option>
+          <option value="other" {% ifequal category "other" %}selected{% endifequal %}>Other</option>
         </select>
-        <input type="text" name="description" placeholder="Description" required>
+        <input type="text" value="{{description}}" name="description" placeholder="Description" required>
         <div class="btn">
           <button type="submit">Submit</button>
         </div>

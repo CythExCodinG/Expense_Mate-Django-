@@ -24,10 +24,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('delete/<int:id>/',delete_rec),
     path('',login_page),
     path('logout/',logout_user),
     path('dashboard/',dashboard),
+    path('history/',history_view),
     path('dashboard/add/',add_expense),
+    path('dashboard/add/<id>',add_expense),
+
     path('register/',register),
 ]
 

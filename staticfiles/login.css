@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  background: url("/media/assets/login.png") no-repeat center center/cover;
 }
 
 .formcontainer {
@@ -19,10 +20,8 @@
   justify-content: center;
   flex-direction: column;
   border-radius: 5px;
-  border: 2px solid rgba(0, 0, 0, 0.397);
+  border: 2px solid rgba(0, 0, 0, 0.178);
   backdrop-filter: blur(5px);
-  background-color: #7a7676;
-
 }
 
 .message-box{
@@ -41,8 +40,8 @@
   padding: 15px;
   margin: 20px 60px;
   font-weight: 500;
-  outline: none;
-  border: none;
+  border: 1px solid rgb(23, 158, 236);
+
   transition: all 0.5s ease-in;
 }
 .formcontainer .input {
@@ -54,8 +53,6 @@
   padding: 10px;
   margin: 20px 60px;
   font-weight: 600;
-  outline: none;
-  border: none;
 }
 .formcontainer .btn-box {
   width: 400px;
@@ -93,7 +90,7 @@ button {
 
 h1 {
   font-family: "Poppins", sans-serif;
-  color: rgb(219, 233, 225);
+  color:seagreen;
   margin-top: 100px;
   margin-bottom: 30px;
   text-align: center;
@@ -107,13 +104,12 @@ h1 {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 60px;
-  color: rgb(226, 206, 27);
-
+  color: rgb(241, 58, 26);
 }
 .link a{
   text-decoration: none;
-  color: #fff;
+  color: rgb(21, 146, 218);
 }
 input:hover{
-  box-shadow:0px 3px 10px 0.5px rgb(23, 158, 236);
+  box-shadow:0px 0px 5px 0.5px rgb(23, 158, 236);
 }

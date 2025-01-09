@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://api.fontshare.com/v2/css?f[]=chillax@400,500&display=swap" rel="stylesheet">
   <title>DashBoard</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'dashboard.css' %}">
@@ -14,21 +15,33 @@
     <!-- Hearder Start -->
     <header>
       <div class="title">
+        <img src="/media/assets/logoweb.png" alt="">
+
         <h1>Expense Mate !</h1>
       </div>
       <div class="navbar">
         <nav>
           <ul>
-            <li>Dashboard</li>
+
+            <a href="/dashboard">
+              <li {% ifnotequal title "dashboard" %} class="" {% endifnotequal %} class="active">Dashboard</li>
+            </a>
+
             <li>About</li>
+
             <li>Graph</li>
+
+            <a href="/history">
+              <li {% ifnotequal title "history" %} class="" {% endifnotequal %} class="active">History</li>
+            </a>
+
             <a href="/logout/">
               <li>Logout</li>
             </a>
           </ul>
         </nav>
         <div class="user">
-          <h4>Hi! {{request.user}}</h4>
+          <h4>Hi! {{request.user|upper}}</h4>
         </div>
       </div>
     </header>
@@ -39,6 +52,7 @@
       <div class="budget-outer">
         <div class="budget">
           <h1>Budget</h1>
+          <br>
           <span>Rs. 2000</span>
           <button class="btn">Set</button>
         </div>
@@ -50,6 +64,7 @@
       <div class="expense-outer">
         <div class="expense">
           <h1>Total Expense</h1>
+          <br>
           <span>
             Rs. {{ amount }}
           </span>
@@ -60,9 +75,11 @@
         </div>
       </div>
 
+
       <div class="repeat-outer">
         <div class="repeatexpense">
           <h1>Recurring</h1>
+          <br>
           <span>Rs. 3000</span>
           <button class="btn">Set</button>
         </div>
@@ -74,66 +91,67 @@
     <!-- Card Section Ends -->
 
     <!-- category boxes starts -->
-    <div class="category-box">
-      <h1>Expense is Different Categories</h1>
-      <div class="stationary-box">
-        <div class="image-cat">
-          <img src="/media/assets/food.png" alt="" width="80px">
-        </div>
-        <div class="details">
-          <h2>{% if food %}{{ food }}{% endif %}</h2>
-        </div>
-      </div>
-
-      <div class="stationary-box">
-        <div class="image-cat">
-          <img src="/media/assets/Stationary.png" alt="" width="80px">
-        </div>
-        <div class="details">
-          <h2>{% if stationary %}{{ stationary }}{% endif %}</h2>
-        </div>
-      </div>
-
-      <div class="stationary-box">
-        <div class="image-cat">
-          <img src="/media/assets/utility.png" alt="" width="150px">
-        </div>
-        <div class="details">
-          <h2>{% if bills %}{{ bills }}{% endif %}</h2>
-        </div>
-      </div>
-
-      <div class="stationary-box">
-        <div class="image-cat">
-          <img src="/media/assets/fitness.png" alt="" width="80px">
-        </div>
-        <div class="details">
-          <h2>{% if health %}{{ health }}{% endif %}</h2>
-        </div>
-      </div>
-    </div>
-    <!-- Category boxes ends -->
-
-    <div class="outerwarn">
-
-      <div class="warncard">
-        <h1>Know Your Limits</h1>
-
-        <div class="compare">
-          <div class="totalexpense">
-            <h2>Expense</h2>
-            <h2 style="text-align: center;">{{amount}}</h2>
+    <div class="bottom">
+      <div class="category-box">
+        <h1>Expense is Different Categories</h1>
+        <div class="stationary-box">
+          <div class="image-cat">
+            <img src="/media/assets/food.png" alt="" width="80px">
           </div>
-          <div class="budget">
-            <h2>Budget</h2>
+          <div class="details">
+            <h2>{% if food %}Rs. {{ food }} {% else %}None{% endif %}</h2>
           </div>
         </div>
 
-        <div class="result">
-          <h2 style="text-align: center;">Budget Exceeded by {{amount}}</h2>
+        <div class="stationary-box">
+          <div class="image-cat">
+            <img src="/media/assets/Stationary.png" alt="" width="80px">
+          </div>
+          <div class="details">
+            <h2>{% if stationary %}Rs. {{ stationary }}{% else %}None{% endif %}</h2>
+          </div>
+        </div>
+
+        <div class="stationary-box">
+          <div class="image-cat">
+            <img src="/media/assets/utility.png" alt="" width="150px">
+          </div>
+          <div class="details">
+            <h2>{% if bills %}Rs. {{ bills }} {% else %}None{% endif %}</h2>
+          </div>
+        </div>
+
+        <div class="stationary-box">
+          <div class="image-cat">
+            <img src="/media/assets/fitness.png" alt="" width="80px">
+          </div>
+          <div class="details">
+            <h2>{% if health %}Rs. {{ health }}{% else %}None{% endif %}</h2>
+          </div>
         </div>
       </div>
+      <!-- Category boxes ends -->
 
+      <div class="outerwarn">
+        <div class="warncard">
+          <h1>Know Your Limits</h1>
+
+          <div class="compare">
+            <div class="totalexpense">
+              <h2>Expense</h2>
+              <h2 style="text-align: center;">{{amount}}</h2>
+            </div>
+            <div class="budget">
+              <h2>Budget</h2>
+            </div>
+          </div>
+
+          <div class="result">
+            <h2 style="text-align: center;">Budget Exceeded by {{amount}}</h2>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </body>
