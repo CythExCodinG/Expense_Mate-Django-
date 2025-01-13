@@ -27,7 +27,9 @@
               <li {% ifnotequal title "dashboard" %} class="" {% endifnotequal %} class="active">Dashboard</li>
             </a>
 
-            <li>About</li>
+            <a href="/about_page">
+              <li {% ifnotequal title "about" %} class="" {% endifnotequal %} class="active">About</li>
+            </a>
 
             <li>Graph</li>
 
@@ -53,8 +55,14 @@
         <div class="budget">
           <h1>Budget</h1>
           <br>
-          <span>Rs. 2000</span>
-          <button class="btn">Set</button>
+          <span style="color: white;">
+            Rs. {{budget}}
+          </span>
+          {% if not budget %}
+          <a href="budget/"><button class="btn">Set</button></a>
+          {% else %}
+          <a href="renew/{{b.id}}"><button class="btn">Edit</button></a>
+          {% endif %}
         </div>
         <div class="image">
           <img src="/media/assets/budget.png">
@@ -143,11 +151,18 @@
             </div>
             <div class="budget">
               <h2>Budget</h2>
+              <h2 style="text-align: center;">{{budget}}</h2>
             </div>
           </div>
 
           <div class="result">
-            <h2 style="text-align: center;">Budget Exceeded by {{amount}}</h2>
+            <h2 style="text-align: center;">
+              {% ifequal flag 1 %}
+              Budget Exceeded by {{compare}}
+              {% else %}
+              Within Budget you can still spend {{compare}}
+              {% endifequal %}
+            </h2>
           </div>
         </div>
 

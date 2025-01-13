@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 EXTERNAL_APPS=[
-  'ExpenseMate'
+  'ExpenseMate',
+  'mathfilters'
 ]
 
 INSTALLED_APPS+=EXTERNAL_APPS

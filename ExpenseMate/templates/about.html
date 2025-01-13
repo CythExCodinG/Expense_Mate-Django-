@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'about.css' %}">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- Hearder Start -->
+    <header>
+      <div class="title">
+        <img src="/media/assets/logoweb.png" alt="">
+
+        <h1>Expense Mate !</h1>
+      </div>
+      <div class="navbar">
+        <nav>
+          <ul>
+
+            <a href="/dashboard">
+              <li {% ifnotequal title "dashboard" %} class="" {% endifnotequal %} class="active">Dashboard</li>
+            </a>
+
+            <a href="/about_page">
+              <li {% ifnotequal title "about" %} class="" {% endifnotequal %} class="active">About</li>
+            </a>
+
+            <li>Graph</li>
+
+            <a href="/history">
+              <li {% ifnotequal title "history" %} class="" {% endifnotequal %} class="active">History</li>
+            </a>
+
+            <a href="/logout/">
+              <li>Logout</li>
+            </a>
+          </ul>
+        </nav>
+        <div class="user">
+          <h4>Hi! {{request.user|upper}}</h4>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="heading">
+
+        <h2>About Us</h2>
+        <img src="/media/assets/animated1.gif" alt="">
+        <div class="gif">
+          <img src="/media/assets/animated2.gif" alt="">
+        </div>
+        <h1>Expense Mate</h1>
+        <h3>Your partner in manageing daily expenses effortlessly</h3>
+      </div>
+
+      <div class="infoouter">
+        <div class="infocard">
+          <span>Expense Mate is a smart and intuitive platform designed to help college students manage their daily and
+            recurring expenses. With powerful tools like expense tracking, budgeting, and insightful analytics, our goal
+            is to make personal finance easy and stress-free</span>
+        </div>
+      </div>
+
+      <div class="features">
+        <h1>Features</h1>
+        <div class="container">
+          <div class="cards">
+            <div class="effect"></div>
+            <img src="/media/assets/track.png" alt="">
+            <h2>Track Expenses</h2>
+          </div>
+
+          <div class="cards">
+            <div class="effect"></div>
+
+            <img src="/media/assets/set.png" alt="">
+            <h2>Set Goals</h2>
+          </div>
+          <div class="cards">
+            <div class="effect"></div>
+
+            <img src="/media/assets/dashboard.png" alt="">
+            <h2>Analytics Dashboard</h2>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</body>
+
+</html>

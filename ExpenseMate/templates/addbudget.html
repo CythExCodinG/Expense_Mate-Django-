@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Expense</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'budget.css' %}">
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="image">
+      <img src="/media/assets/addform.png" alt="" width="80px">
+    </div>
+
+    <div class="addex">
+      <form method="post">
+        {% csrf_token %}
+        <h1 style="text-align: center; color: seagreen; font-size: 40px;">Set Budget</h1>
+
+        <input type="number" name="amount" placeholder="Enter Amount" required value="{{amount}}">
+        <div class="btn">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+
+</html>

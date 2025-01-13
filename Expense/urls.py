@@ -29,9 +29,10 @@ urlpatterns = [
     path('logout/',logout_user),
     path('dashboard/',dashboard),
     path('history/',history_view),
+    path('about_page/',aboutpage),
     path('dashboard/add/',add_expense),
     path('dashboard/add/<id>',add_expense),
-
+    path('dashboard/budget/',setbudget),
     path('register/',register),
 ]
 

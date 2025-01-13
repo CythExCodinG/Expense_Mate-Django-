@@ -68,6 +68,7 @@ def register(request):
 
 
 #Yaha hai dashboard ka logic
+@login_required(login_url='/')
 def dashboard(request):
   users=request.user
   u_name=users.username
@@ -80,8 +81,19 @@ def dashboard(request):
   other=Expense.objects.filter(category='other').aggregate(total=Sum('amount'))['total']
   stationary=Expense.objects.filter(category='stationary').aggregate(total=Sum('amount'))['total']
   print(type(object))
-
-  return render(request,'dashboard.html',context={'amount':tot_amount,'food':food,'health':health,'bills':bills,'other':other,'stationary':stationary,'title':'dashboard'})
+  budget=Budget.objects.all()
+  if budget:
+    for b in budget:
+      amount=b.amount
+  else:
+    amount=0
+  if tot_amount>amount:
+    compare=tot_amount-amount
+    flag=1
+  else:
+    compare=amount-tot_amount
+    flag=0
+  return render(request,'dashboard.html',context={'amount':tot_amount,'food':food,'health':health,'bills':bills,'other':other,'stationary':stationary,'title':'dashboard','budget':amount,'flag':flag,'compare':compare})
 
 
 def logout_user(request):
@@ -91,7 +103,7 @@ def logout_user(request):
 
 
 
-@login_required
+@login_required(login_url='/')
 def add_expense(request,id=None):
   if request.method=="POST":
     data=request.POST
@@ -113,16 +125,12 @@ def add_expense(request,id=None):
     amount=queryset.amount
     category=queryset.category
     description=queryset.description
+    messages.info(request,"Data Updated Successfully")
     return render(request,'addexpense.html',context={'amount':amount,'category':category,'description':description})
 
   return render(request,'addexpense.html',)
 
-
-
-def view_page(request):
-  return render(request,'view.html')
-
-
+@login_required(login_url='/')
 def history_view(request):
   query=Expense.objects.all()
   return render(request,'history.html',{'expenses':query,'title':'history'})
@@ -134,3 +142,22 @@ def delete_rec(request,id):
   return redirect('/history')
 
 
+def setbudget(request,id=None):
+  if request.method=="POST":
+    data=request.POST
+    amount=data.get('amount')
+    # date=data.get('date')
+
+    Budget.objects.create(
+      user=request.user,
+      amount=amount,
+    )
+    return redirect('/dashboard')
+  if id:
+    queryset=Budget.objects.get(id=id)
+
+    queryset.amount
+  return render(request,'addbudget.html')
+
+def aboutpage(request):
+  return render(request,'about.html',{'title':'about'})
