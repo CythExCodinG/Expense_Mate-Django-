@@ -20,9 +20,9 @@
     <div class="addex">
       <form method="post">
         {% csrf_token %}
-        <h1 style="text-align: center; color: seagreen; font-size: 40px;">Set Budget</h1>
-
-        <input type="number" name="amount" placeholder="Enter Amount" required value="{{current_budget}}">
+        <h1 style="text-align: center; color: seagreen; font-size: 40px;">Recurring Expense</h1>
+        <input type="number" name="amount" placeholder="Enter Amount" required value="{{amount}}">
+        <input type="text" name="description" placeholder="Enter Description" required value="{{description}}">
         <div class="btn">
           <button type="submit">Submit</button>
         </div>

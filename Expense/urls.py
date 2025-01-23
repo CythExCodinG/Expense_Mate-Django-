@@ -33,6 +33,11 @@ urlpatterns = [
     path('dashboard/add/',add_expense),
     path('dashboard/add/<id>',add_expense),
     path('dashboard/budget/',setbudget),
+    path('dashboard/editrecurring/',editrecurring_expenses),
+    path('view/',graph),
+    path('dashboard/recurring/',add_recurring),
+    path('dashboard/recurring/<id>',add_recurring),
+    path('delete_recurring/<id>',delete_recurring),
     path('register/',register),
 ]
 

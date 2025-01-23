@@ -8,6 +8,9 @@
   <title>DashBoard</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
 </head>
 
 <body>
@@ -31,7 +34,9 @@
               <li {% ifnotequal title "about" %} class="" {% endifnotequal %} class="active">About</li>
             </a>
 
-            <li>Graph</li>
+            <a href="/view">
+              <li {% ifnotequal title "view" %} class="" {% endifnotequal %} class="active">Graph</li>
+            </a>
 
             <a href="/history">
               <li {% ifnotequal title "history" %} class="" {% endifnotequal %} class="active">History</li>
@@ -61,7 +66,7 @@
           {% if not budget %}
           <a href="budget/"><button class="btn">Set</button></a>
           {% else %}
-          <a href="renew/{{b.id}}"><button class="btn">Edit</button></a>
+          <a href="budget/"><button class="btn">Edit</button></a>
           {% endif %}
         </div>
         <div class="image">
@@ -83,13 +88,19 @@
         </div>
       </div>
 
-
       <div class="repeat-outer">
         <div class="repeatexpense">
           <h1>Recurring</h1>
           <br>
-          <span>Rs. 3000</span>
-          <button class="btn">Set</button>
+          <span>Rs.{{recurring}}</span>
+
+          <div class="buttons_div">
+            <a href="recurring/"><button class="btn">Set</button></a>
+            {% if recurring %}
+            <a href="editrecurring/"><button class="btn">Edit</button></a>
+            {% endif %}
+          </div>
+
         </div>
         <div class="image">
           <img src="/media/assets/repeat.png">
@@ -169,6 +180,12 @@
       </div>
     </div>
   </div>
+  <script>
+    {% for message in messages %}
+    alertify.set('notifier', 'position', 'top-right');
+    alertify.success('{{message}}');
+    {% endfor %}
+  </script>
 </body>
 
 </html>

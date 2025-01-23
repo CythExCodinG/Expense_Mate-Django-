@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'history.css' %}">
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Hearder Start -->
+    <header>
+      <div class="title">
+        <img src="/media/assets/logoweb.png" alt="">
+
+        <h1>Expense Mate !</h1>
+      </div>
+      <div class="navbar">
+        <nav>
+          <ul>
+
+            <a href="/dashboard">
+              <li {% ifnotequal title "dashboard" %} class="" {% endifnotequal %} class="active">Dashboard</li>
+            </a>
+
+            <li>About</li>
+
+            <li>Graph</li>
+
+            <a href="/history">
+              <li {% ifnotequal title "history" %} class="" {% endifnotequal %} class="active">History</li>
+            </a>
+
+            <a href="/logout/">
+              <li>Logout</li>
+            </a>
+          </ul>
+        </nav>
+        <div class="user">
+          <h4>Hi! {{request.user|upper}}</h4>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 style="text-align: center;color: seagreen; font-size: 40px; font-weight: bold;">Recurring Expenses</h1>
+        <div class="content">
+          <table>
+            <tr>
+              <th>Sr No.</th>
+              <th>Amount</th>
+              <th>Description</th>
+              <th colspan="2">Action</th>
+            </tr>
+            {% for expense in recurring %}
+
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td style="font-weight: bold;">{{ expense.amount }} Rs</td>
+              <td>{{ expense.description | upper }}</td>
+              <td><a href="/delete_recurring/{{expense.id}}">
+                  <span class="button">Delete</span>
+                </a></td>
+              <td>
+                <a href="/dashboard/recurring/{{expense.id}}">
+                  <span class="button2">Edit</span>
+                </a>
+              </td>
+            </tr>
+            <br>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </main>
+    <script>
+      {% for message in messages %}
+      alertify.set('notifier', 'position', 'top-right');
+      alertify.success('{{message}}');
+      {% endfor %}
+    </script>
+</body>
+
+</html>
